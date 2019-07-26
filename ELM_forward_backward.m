@@ -35,13 +35,15 @@ function[train_acc,test_acc,train_time,test_time,beta,ww]=ELM_forward_backward(t
 % Outputs:
 %     train_acc- Accuracy of the network on training set or The RMSE value for training set for regrssion problem
 %     test_acc- Accuracy of the network on testing set or The RMSE value for testing set for regrssion problem
+%     train_time - Time required to train the network
+%     test_time - Time required to test all testing samples
 %     beta- Moore-penrose inverse approximation of hidden to output weight
 %     w- Randomly assigned Weight to input to hidden nodes
 %
 % Example: 
-%     [train_acc,test_acc,beta,w]=SLFN_ELM(Train_image,Train_label,Test_image,Test_label,30);
-%     [train_acc,test_acc,beta,w]=SLFN_ELM(Train_image,Train_label,Test_image,Test_label,30,'ortho');
-%     [train_acc,test_acc,beta,w]=SLFN_ELM(Train_image,Train_label,Test_image,Test_label,30,'ortho','Sigmoid');
+%     [train_acc,test_acc,beta,w]=ELM_forward_backward(Train_image,Train_label,Test_image,Test_label,30,0);
+%     [train_acc,test_acc,beta,w]=ELM_forward_backward(Train_image,Train_label,Test_image,Test_label,30,0,'ortho');
+%     [train_acc,test_acc,beta,w]=ELM_forward_backward(Train_image,Train_label,Test_image,Test_label,30,0,'ortho','Sigmoid');
 %
 % Other m-files required: none
 % Subfunctions: none
@@ -64,7 +66,7 @@ function[train_acc,test_acc,train_time,test_time,beta,ww]=ELM_forward_backward(t
 % Author: Dibyasundar Das, Ph.D., Computer Science,
 % National Institute of Technology Rourkela, Odisha, India.
 % email address: dibyasundar@ieee.org
-% July 2019; Last revision: 06-July-2019
+% July 2019; Last revision: 26-July-2019
 
 %------------- BEGIN CODE --------------
 train_acc=NaN;test_acc=NaN;beta=NaN;w=NaN;

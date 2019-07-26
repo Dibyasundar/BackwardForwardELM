@@ -9,6 +9,7 @@ function[train_acc,test_acc,train_time,test_time,beta,w]=SLFN_ELM(train_data,tra
 %    test_data - Test samples of size M2 x N
 %    test_label - Class labels for M2 x class_size (one hot vector)
 %    Num_hidden - Number of nodes in hidden layer.
+%    reg_or_cl - 0 for classification 1 for regression
 %    p - Random node intialization type and takes the following value
 %         'rand(0,1)' : For uniformly distributed random intizlization ranges from 0 to 1.
 %         'rand(-1,1)': For uniformly distributed random intizlization ranges from -1 to 1.
@@ -34,13 +35,15 @@ function[train_acc,test_acc,train_time,test_time,beta,w]=SLFN_ELM(train_data,tra
 % Outputs:
 %     train_acc- Accuracy of the network on training set
 %     test_acc- Accuracy of the network on testing set
+%     train_time - Time required to train the network
+%     test_time - Time required to test all testing samples
 %     beta- Moore-penrose inverse approximation of hidden to output weight
 %     w- Randomly assigned Weight to input to hidden nodes
 %
 % Example: 
-%     [train_acc,test_acc,beta,w]=SLFN_ELM(Train_image,Train_label,Test_image,Test_label,30);
-%     [train_acc,test_acc,beta,w]=SLFN_ELM(Train_image,Train_label,Test_image,Test_label,30,'ortho');
-%     [train_acc,test_acc,beta,w]=SLFN_ELM(Train_image,Train_label,Test_image,Test_label,30,'ortho','Sigmoid');
+%     [train_acc,test_acc,beta,w]=SLFN_ELM(Train_image,Train_label,Test_image,Test_label,30,0);
+%     [train_acc,test_acc,beta,w]=SLFN_ELM(Train_image,Train_label,Test_image,Test_label,30,0,'ortho');
+%     [train_acc,test_acc,beta,w]=SLFN_ELM(Train_image,Train_label,Test_image,Test_label,30,0,'ortho','Sigmoid');
 %
 % Other m-files required: none
 % Subfunctions: none
@@ -65,7 +68,7 @@ function[train_acc,test_acc,train_time,test_time,beta,w]=SLFN_ELM(train_data,tra
 % Author: Dibyasundar Das, Ph.D., Computer Science,
 % National Institute of Technology Rourkela, Odisha, India.
 % email address: dibyasundar@ieee.org
-% July 2019; Last revision: 06-July-2019
+% July 2019; Last revision: 26-July-2019
 
 %------------- BEGIN CODE --------------
 train_acc=NaN;test_acc=NaN;beta=NaN;w=NaN;
