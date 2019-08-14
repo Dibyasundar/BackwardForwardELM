@@ -5,7 +5,7 @@ function[train_acc,test_acc,train_time,test_time,beta,ww]=ELM_forward_backward(t
 %
 % Inputs:
 %    train_data - Sample for training Network of size M1 x N
-%    train_label - Class labels s for training size M1 x class_size (one hot vector)
+%    train_label - Class labels s for training size M1 x 1 (class labels in vector format)
 %    test_data - Test samples of size M2 x N
 %    test_label - Class labels for M2 x class_size (one hot vector)
 %    Num_hidden - Number of nodes in hidden layer.
