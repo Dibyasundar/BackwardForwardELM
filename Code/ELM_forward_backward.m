@@ -66,7 +66,7 @@ function[train_acc,test_acc,train_time,test_time,beta,ww]=ELM_forward_backward(t
 % Author: Dibyasundar Das, Ph.D., Computer Science,
 % National Institute of Technology Rourkela, Odisha, India.
 % email address: dibyasundar@ieee.org
-% July 2019; Last revision: 26-July-2019
+% July 2019; Last revision: 04-Aug-2021
 
 %------------- BEGIN CODE --------------
 train_acc=NaN;test_acc=NaN;beta=NaN;w=NaN;
@@ -116,9 +116,9 @@ w=pinv(I)*H;
 [m1,~]=size(w);
 n1=A_Num_hidden-Num_hidden;
 if m1>=n1
-    nw=s(:,1:n1);
+    nw=s(1:n1,:)';
 elseif n1>m1
-    nw=d(1:m1,:);
+    nw=d(:,1:m1)';
 end
 ww=[w,nw];
     
