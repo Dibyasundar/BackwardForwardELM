@@ -225,7 +225,7 @@ switch p
         if Num_hidden>=bias_sz
             w=s(1:bias_sz,:)';
         else
-            w=d(:,1:bias_sz);
+            w=d(:,1:Num_hidden)';
         end
     otherwise
         disp(strcat('Unkown input .....',{' '},p,' is not a valid input.... recheck input'));return;
